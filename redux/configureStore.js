@@ -1,7 +1,11 @@
 import { combineReducers, applyMiddleware, createStore } from "redux";
 import { persistStore, persistCombineReducers } from "redux-persist";
-import storage from "reduex-persis/lib/storage";
+import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
+import user from "./modules/user"
+import schedule from "./modules/schedule"
+import speaking from "./modules/speaking"
+import today from "./modules/today"
 
 const middlewares = [thunk];
 
@@ -11,11 +15,14 @@ const persistConfig = {
 };
 
 const reducer = persistCombineReducers(persistConfig, {
-  user
+ user,
+ today,
+ speaking,
+ schedule
 });
 
 const configureStore = () => {
-    let store = createStore(reducer,applyMiddleware(...middlewares));
+    let store = createStore(reducer,applyMiddleware(thunk));
     let persistor = persistStore(store);
     return {store, persistor}
 }
