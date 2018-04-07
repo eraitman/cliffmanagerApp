@@ -25,12 +25,16 @@ class Container extends Component {
         this.setState({
           isSubmitting: true
         });
-        const loginResult = await login(username, password);
+        let loginResult = await login(username, password);
+        console.log("aa")
+        console.log(loginResult)
         if (!loginResult) {
+          console.log("bb")
+          console.log(loginResult)
           this.setState({
             isSubmitting: false
           });
-          //Alert.alert("Something went Wrong, Try again");
+          Alert.alert("Something went Wrong, Try again");
         }
       } else {
         Alert.alert("All Filed");

@@ -45,9 +45,9 @@ function login(username, password) {
         if (json.token && json.user) {
           dispatch(setLogin(json.token));
           dispatch(setUser(json.user));
-          //return true;
+          return true;
         } else {
-          //return false;
+          return false;
         }
       })
       .catch(err => console.log(err));
@@ -70,6 +70,18 @@ function logout() {
       .catch(err => console.log(err));
   };
 }
+
+function signup(){
+  return dispatch =>{
+    return fetch(`${API_URL}/rest-auth/`)
+    
+  }
+
+}
+
+
+
+
 //Initial State
 const initialState = {
   isLoggedIn: false

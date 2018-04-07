@@ -4,8 +4,6 @@ import { AsyncStorage } from "react-native";
 //Actions
 
 const SET_SCHEDULES = "SET_SCHEDULES";
-// const LOG_OUT = "LOG_OUT";
-// const SET_USER = "SET_USER";
 
 //Action Creators
 function setSchedules(schedules) {
